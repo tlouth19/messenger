@@ -14,7 +14,7 @@ const Header = () => {
         </div>
         <div>
           <h1 className="font-bold">FieldChat</h1>
-          <span className="text-xs text-gray-600 block -mt-1">
+          <span className="text-xs block -mt-1">
             I tell jokes, chat with people, and make stuff.
           </span>
         </div>

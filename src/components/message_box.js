@@ -41,6 +41,7 @@ const MessageBox = ({ onPostMessage }) => {
     >
       <button
         className="bg-blue-900 rounded-full p-2 shadow"
+        aria-label="Send an Image"
         onClick={onOpenFilePicker}
       >
         <IoMdImage className="text-white" />
@@ -54,6 +55,7 @@ const MessageBox = ({ onPostMessage }) => {
       />
       <textarea
         className="flex-auto mx-4 px-4 resize-none p-2 border border-gray-400 rounded h-10 focus:h-24"
+        aria-label="Message"
         style={{ transition: "height .2s ease-in-out" }}
         rows={3}
         value={message}
