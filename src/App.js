@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/header'
+import MessageList from './components/message_list'
+import MessageBox from './components/message_box'
+import { createMessage } from './helpers/'
 
-function App() {
+let INITIAL_MESSAGES = [
+  createMessage("Hello, how are you today?", null, 'INCOMING'),
+  createMessage('Try sending me a message or a photo 😎', null, "INCOMING")
+]
+
+const App = () => {
+
+  const [messages, addMessage] = useState(INITIAL_MESSAGES)
+
+  const onPostMessage = (message) => {
+    addMessage(messages => ([ ...messages, message ]))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='flex flex-col h-screen'>
+      <Header/>
+      <MessageList messages={messages}/>
+      <MessageBox onPostMessage={onPostMessage}/>
     </div>
-  );
+  )
 }
 
 export default App;
