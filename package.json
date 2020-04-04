@@ -7,18 +7,31 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.7.5",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
     "postcss-cli": "^7.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.9.0",
     "react-scripts": "3.4.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "scripts": {
     "start": "npm run build:style && react-scripts start",
     "build": "react-scripts build",
     "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier src/**/*.{js,css} --write"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "2.0.2",
     "tailwindcss": "^1.2.0"
   }
 }

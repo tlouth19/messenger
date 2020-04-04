@@ -4,7 +4,8 @@ module.exports = {
   },
   variants: {
     opacity: ['disabled'],
-    cursor: ['disabled']
+    cursor: ['disabled'],
+    height: ['focus']
   },
   plugins: [],
 }
