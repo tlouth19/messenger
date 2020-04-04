@@ -25,6 +25,11 @@ const MessageBox = ({ onPostMessage }) => {
 
   const onImageSubmit = (e) => {
     e.preventDefault();
+
+    if (!e.target.files || !e.target.files[0]) {
+      return;
+    }
+
     let image = URL.createObjectURL(e.target.files[0]);
     onPostMessage(createMessage(null, image, "OUTGOING"));
   };
